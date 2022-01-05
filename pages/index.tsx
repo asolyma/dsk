@@ -1,30 +1,50 @@
-import type { NextPage } from "next";
-import { Box, Heading, Image } from "@chakra-ui/react";
-import SignIn from "../components/SignIn";
-const Home: NextPage = () => {
+import { Box, Heading } from "@chakra-ui/react";
+import { NextPage } from "next";
+import NextLink from "next/link";
+import { Link } from "@chakra-ui/react";
+
+const home: NextPage = () => {
   return (
-    <Box display={["flex"]} flexDir={["column", "row"]}>
+    <Box
+      bg="purple.800"
+      w="100vw"
+      h="100vh"
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+    >
       <Box
-        w={["100vw", "50vw"]}
-        h={["25vh", "100vh"]}
         display={"flex"}
+        flexDir={"column"}
         justifyContent={"center"}
         alignItems={"center"}
+        experimental_spaceY={"20"}
+        role={"group"}
       >
-        <Image src="/logo.png" alt="Logo" />
-      </Box>
-      <Box
-        w={["100vw", "50vw"]}
-        h={["75vh", "100vh"]}
-        bg={"purple.900"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={["flex-start", "center"]}
-      >
-        <SignIn />
+        <Heading
+          fontSize={["xl", "3xl", "4xl", "100px"]}
+          fontFamily={"Caveat"}
+          textColor={"purple.300"}
+          // onClick={() => {
+          //   setShow((show) => !show);
+          // }}
+        >
+          Welcom to Dsk.
+        </Heading>
+        <NextLink href="/dashboard" passHref>
+          <Link
+            style={{ textDecoration: "none" }}
+            textDecoration={"none"}
+            boxShadow={"none"}
+            fontFamily={"Caveat"}
+            fontSize={"2xl"}
+            textColor={"purple.200"}
+          >
+            Dashboard🚀🚀🚀🚀🚀
+          </Link>
+        </NextLink>
       </Box>
     </Box>
   );
 };
-
-export default Home;
+export default home;

@@ -9,6 +9,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+  enum Role {
+    ADMIN
+    MEMBER
+    GUEST
+  }
+
  model User {
    id String @id @default(uuid())
    firstname String 
@@ -17,8 +24,9 @@ datasource db {
    password String
    phonenumber String
    avatar String?
-   Checkins Chekin[]
-   Checkouts Checkout[]
+   checkins Chekin[]
+   checkouts Checkout[]
+   role Role
  }
  model Chekin {
    id Int @id @default(autoincrement())
